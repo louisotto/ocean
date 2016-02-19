@@ -1,0 +1,56 @@
+extends layout
+
+block content
+    .row
+        div.jumbotron.jumbotron-fluid
+            div.container
+                h1.display-3.wow.fadeIn Ocean
+                p.lead.wow.fadeIn(data-wow-delay="0.5s") A really easy-to-use static Express powered Bootstrap 4 website
+                a(href="#").btn.btn-primary.btn-lg.wow.fadeIn(data-wow-delay="1s")
+                    span.fui-github.white  Download on Github
+                a(href="/docs").btn.btn-primary-outline.btn-lg.wow.fadeIn(data-wow-delay="1.2s")
+                    span.fui-search.white  Read the Docs
+    .row.pad:.col-sm-10.col-sm-offset-1
+        h2.center About this site
+        p.lead.
+            Ocean uses some pretty clever technology under the hood. You've got #[a(href="https://nodejs.org/en/", target="_blank") NodeJS] powering the server with a layer of #[a(href="http://expressjs.com/", target="_blank") Express] magic. Templates are handled by the magnificent #[a(href="http://jade-lang.com/", target="_blank") Jade], and then you've got #[a(href="http://v4-alpha.getbootstrap.com/", target="_blank") Bootstrap 4] with a dash of #[a(href="http://designmodo.github.io/Flat-UI/", target="_blank") Flat UI] for good measure. Oh, and subtle animations courtesy of #[a(href="https://daneden.github.io/animate.css/", target="_blank") Animate.css] and #[a(href="http://mynameismatthieu.com/WOW/", target="_blank") Wow.js]
+
+        p.
+            Static sites are all the rage these days. We seem to be moving full-circle in our approach to building websites. Once upon a time, all websites were static, but then popular CMS solutions like WordPress took all the pain away from maintaining lots of static pages by giving us dynamically generated pages instead!
+
+        p.
+            We exchanged static-page maintenance for ease-of-use, and low maintenance page updating. Unfortunately we also took on painfully-slow database connections, and the host of security flaws associated with them...
+
+        p.
+            To cut a long story short. Static sites are on the rise again, and for simple, informative websites they're a perfect fit. Services like Github Pages and Amazon S3 Cloudfront are great for static sites that handle high traffic and don't have any of the database or security issues you may encounter day-to-day.
+    .row.pad.bg:.col-sm-8.col-sm-offset-2
+        h2.center.wow.fadeIn So why Node and Express?
+        p.wow.fadeIn.
+            I'm a fan of cool technology, and if you're reading this then chances are that you'll fall into that group, too. Node is really fast as a web server, and it has loads of benefits.
+
+        blockquote.blockquote.wow.fadeIn(data-wow-delay="1s")
+            p.m-b-0.
+                Node.js is smaller and nimbler than the PHP interpreter. It’s less encumbered by legacy language support and Google has made a huge investment in V8 performance.
+            footer.blockquote-footer.
+                Craig Buckler from #[a(href="http://www.sitepoint.com/sitepoint-smackdown-php-vs-node-js/", target="_blank") SitePoint]
+        p.wow.fadeIn(data-wow-delay="1s").
+            To be honest, the more I use Node and Express to power websites, the more I love it. I hope you'll download the sources files and love it as much as I do too.
+    .row.pad:.col-sm-10.col-sm-offset-1
+        h2.center.wow.fadeIn    So how do I use Ocean?
+        p.lead.wow.fadeIn.
+            I built Ocean to be really simple to get up and running. If you've already got Node installed, there are only 3 steps:
+        .col-md-4
+            .card.wow.fadeIn(data-wow-delay="0s")
+                img.card-img-top.img-fluid.center(src="/images/arrow.png", alt="Alt text", width="150")
+                .card-block
+                    h4.card-title.center Download
+        .col-md-4
+            .card.wow.fadeIn(data-wow-delay="0.5s")
+                img.card-img-top.img-fluid.center(src="/images/three.png", alt="Alt text", width="150")
+                .card-block
+                    h4.card-title.center Install
+        .col-md-4
+            .card.wow.fadeIn(data-wow-delay="1s")
+                img.card-img-top.img-fluid.center(src="/images/sports.png", alt="Alt text", width="150")
+                .card-block
+                    h4.card-title.center Run

@@ -1,0 +1,81 @@
+extends layout
+
+block content
+    .row
+        div.jumbotron.jumbotron-fluid
+            div.container
+                h1.display-3 Documentation
+                p.lead Quick Start Guide and more
+
+    .row
+        .col-sm-3.bg
+            h3 Contents
+
+            ul.nav.contents
+                li.nav-item
+                    a.nav-link(href="#requirements") Requirements
+                li.nav-item
+                    a.nav-link(href="#install") Installation
+                li.nav-item
+                    a.nav-link(href="#structure") Project Structure
+
+        .col-sm-9
+            h3#requirements    Requirements
+
+            p.
+                You'll need #[a(href="https://nodejs.org/en/", target="_blank") NodeJS #[span.fui-exit.leave]] running on your machine. You can always run #[kbd node -v] inside your terminal to check.
+
+            p.
+                I recommend installing #[a(href="https://github.com/remy/nodemon" target="_blank") Nodemon #[span.fui-exit.leave]] as it takes the pain out of restarting the server as you make back-end changes to the project.
+            hr
+
+            h3#install  Installation
+
+            p.
+                To install Ocean via command line, open your CLI and download the project from Github:
+
+            kbd.
+                teststsetset setse tse tset
+
+            p Head into your app's directory:
+
+            kbd cd /myapp
+
+            p Install the project dependencies:
+
+            kbd npm install
+
+            p Start the app:
+
+            kbd npm start
+
+            p Visit 
+                samp http://localhost:3000
+
+            hr
+
+            h3#structure Structure
+
+            p.
+                The structure of Ocean is based on the popular Express Generator project. So if you have any familiarity with Express Generator, you'll feel right at home. If not, the directory structure is described below:
+            pre.
+                ├── app.js              <-- Modules, routing, error handling etc
+                ├── bin
+                │   └── www             <-- The web server
+                ├── package.json        <-- Define project requirements
+                ├── public              <-- All static files (css,js,images etc)
+                │   ├── images
+                │   ├── javascripts
+                │   └── stylesheets
+                │       └── style.css
+                ├── routes              <-- Express routing on a per-page level
+                │   ├── index.js
+                │   └── ...
+                └── views               <-- View templates
+                    ├── inc
+                    │   ├── nav.jade
+                    │   └── ...
+                    ├── index.jade
+                    └── ...
+            p.
+                We'll dig into the configuration in a moment, but this should hopefully show you just how simple and straightforward Ocean is.

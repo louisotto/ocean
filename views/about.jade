@@ -1,0 +1,83 @@
+extends layout
+
+block content
+    .row
+        div.jumbotron.jumbotron-fluid
+            div.container
+                h1.display-3.wow.fadeIn About Us
+
+    .row           
+        .col-sm-10.col-sm-offset-1.wow.fadeIn
+            h2.center What we do
+            p.lead.
+                Lorem ipsum dolor sit amet, pri cu assum iracundia adversarium. Sea saperet intellegat et, harum erroribus te est. In mentitum partiendo instructior est. Sit nemore aeterno labores in, ei habeo iuvaret scriptorem his. No duo libris rationibus, purto vidisse pri no.
+            p.
+                Omittam mnesarchum ei nam. An vel alia scaevola quaestio, id his dicat latine. Id mundi malorum inciderint qui. Qui posse assum omittantur eu, te eam iusto veniam consetetur. Delectus iracundia suscipiantur quo at, cu modus possim insolens ius, id has prompta nusquam. Putent nonumes admodum ut mei.
+            p.
+                Ea iriure accumsan eos, nonumes legendos quaestio et sea. Te vis viderer scriptorem, duis posse aliquam no eos. Sit mazim salutandi voluptaria cu, affert quodsi deseruisse id usu. Vero modus deseruisse vis no, at sed minim doming propriae, vel hinc nonumes omittantur ex. Has labore prodesset incorrupte ea, volumus epicuri praesent quo ut.
+            button.btn.btn-primary.btn-lg.center-btn(data-toggle="modal", data-target="#videoModal").
+                Find out why we'd never let you down
+
+            .modal.fade#videoModal(tabindex="-1", role="dialog", aria-labelledby="videoModalLabel" aria-hidden="true")
+                .modal-dialog(role="document")
+                    .modal-content
+                        .modal-header
+                            button.close(type="button", data-dismiss="modal", aria-label="Close")
+                                span(aria-hidden="true")&times;
+                            h4  Our Showreel
+                        .modal-body
+                            .embed-responsive.embed-responsive-16by9
+                                iframe.embed-responsive-item(src="https://www.youtube.com/embed/dQw4w9WgXcQ", allowfullscreen)
+    .row.pad.team
+        .col-sm-12
+            h2.center Our Team
+            .col-md-4
+                .card.wow.fadeIn(data-wow-delay="0s")
+                    img.card-img-top.img-fluid(src="/images/placeholder.jpg", alt="Alt text")
+                    .card-block
+                        h4.card-title John Doe
+                        h6.card-subtitle.text-muted CEO
+                        p.card-text.
+                            Some quick example text to build on the card title and make up the bulk of the card's content.
+                        a(href="#")
+                            span.fui-linkedin.social-icons
+                        a(href="#")
+                            span.fui-facebook.social-icons
+                        a(href="#")
+                            span.fui-twitter.social-icons
+                        a(href="#")
+                            span.fui-instagram.social-icons
+            .col-md-4
+                .card.wow.fadeIn(data-wow-delay="0.4s")
+                    img.card-img-top.img-fluid(src="/images/placeholder.jpg", alt="Alt text")
+                    .card-block
+                        h4.card-title Jane Doe
+                        h6.card-subtitle.text-muted CFO
+                        p.card-text.
+                            Some quick example text to build on the card title and make up the bulk of the card's content.
+                        a(href="#")
+                            span.fui-linkedin.social-icons
+                        a(href="#")
+                            span.fui-facebook.social-icons
+                        a(href="#")
+                            span.fui-twitter.social-icons
+                        a(href="#")
+                            span.fui-instagram.social-icons
+            .col-md-4
+                .card.wow.fadeIn(data-wow-delay="0.8s")
+                    img.card-img-top.img-fluid(src="/images/placeholder.jpg", alt="Alt text")
+                    .card-block
+                        h4.card-title Jeff Doe
+                        h6.card-subtitle.text-muted COO
+                        p.card-text.
+                            Some quick example text to build on the card title and make up the bulk of the card's content.
+                        a(href="#")
+                            span.fui-linkedin.social-icons
+                        a(href="#")
+                            span.fui-facebook.social-icons
+                        a(href="#")
+                            span.fui-twitter.social-icons
+                        a(href="#")
+                            span.fui-instagram.social-icons
+    .row
+

@@ -1,0 +1,151 @@
+/*
+    Because Bootstrap 4 is still so new, some things don't work properly when combined with Flat UI, so I've modified them here. Feel free to override them :)
+*/
+
+/* NAVIGATION */
+
+.navbar .nav-link {
+    padding: .875em 1em;
+}
+
+.navbar-nav>li>a {
+    font-size: 1.143em;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #67bcdb;
+}
+
+.navbar-light .navbar-nav .active>.nav-link {
+    color: #125894;
+}
+
+/* BUTTONS, TYPOGRAPHY, ETC */
+
+.btn-primary-outline {
+    border: 1px solid #FFF;
+    color: #FFF;
+    margin-left: 1em;
+}
+
+.btn-primary-outline:hover {
+    background-color: #1abc9c;
+    color: #fff;
+    border-color: #1abc9c;
+}
+
+.btn-primary, .btn-primary:focus {
+    background: #67bcdb; /* Old browsers */
+}
+.btn-primary:hover {
+    background: #125894;
+}
+
+span {
+    color: #67bcdb;
+}
+span:hover {
+    color: #fff;
+}
+
+.center-btn {
+    display: block;
+    margin: 1em auto;
+}
+
+h2,h3 {
+    padding-bottom: .5em;
+    background: -webkit-linear-gradient(#67bcdb, #125894);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 300;
+}
+
+.leave {
+    font-size: 13px;
+}
+
+/* PAGE SPECIFIC STYLES & HELPERS */
+
+.row.pad {
+    padding: 2em 0;
+}
+
+.jumbotron {
+margin-top: 70px;
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#67bcdb+0,125894+100 */
+background: #67bcdb; /* Old browsers */
+background: -moz-linear-gradient(-45deg,  #67bcdb 0%, #125894 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  #67bcdb 0%,#125894 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  #67bcdb 0%,#125894 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#67bcdb', endColorstr='#125894',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+color: #fff;
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+}
+
+.white {
+    color: white;
+}
+
+.bg {
+    background: #eceeef; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #eceeef 0%, #e0e2e2 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  #eceeef 0%,#e0e2e2 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  #eceeef 0%,#e0e2e2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eceeef', endColorstr='#e0e2e2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+/* ABOUT PAGE */
+
+.team {
+    background-color: #F4F6F7;
+}
+
+.card {
+    background-color: #EEE;
+}
+
+.social-icons {
+    font-size: 40px;
+    line-height: 1;
+    margin-right: 10px;
+}
+
+/* WORK PAGE */
+.work-item {
+    margin-bottom: 1em;
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 0;
+    background: #3f7284; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #3f7284 0%, #072238 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  #3f7284 0%,#072238 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  #3f7284 0%,#072238 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f7284', endColorstr='#072238',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    margin-bottom: 0;
+    color: white;
+}
+.footer p {
+    display: inline-block;
+    vertical-align: bottom;
+    margin: 0;
+}
+.social-tray {
+    display: inline-block;
+    float: right;
+}
+.social-tray a {
+    color: white;
+}
+.social-tray span {
+    vertical-align: top;
+    font-size: 20px;
+    margin-right: 0.5em;
+}

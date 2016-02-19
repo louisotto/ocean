@@ -1,0 +1,21 @@
+mixin header-item(name, url)
+  if name == nav
+    li.nav-item.active
+      a.nav-link(href=url)= name
+      span.sr-only (current)
+  else
+    li.nav-item
+      a.nav-link(href=url)= name
+
+body.container-fluid
+    nav.navbar.navbar-light.bg-faded.navbar-fixed-top
+        a.navbar-brand(href="#") Ocean
+        button.navbar-toggler.hidden-sm-up(type="button", data-toggle="collapse", data-target="#nav")
+            &#9776;
+        .collapse.navbar-toggleable-xs#nav
+            
+            ul.nav.navbar-nav.pull-sm-right
+                +header-item('Home', '/')
+                +header-item('About', '/about')
+                +header-item('Work', '/work')
+                +header-item('Docs', '/docs')
