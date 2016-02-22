@@ -9,6 +9,7 @@ html(lang="en")
         link(rel='stylesheet', href='/stylesheets/vendor/animate.css')
         link(rel='stylesheet', href='/stylesheets/flat-ui.min.css')
         link(rel='stylesheet', href='/stylesheets/custom.css')
+        link(rel='stylesheet', href="/stylesheets/jquery.fancybox.css")
 
     include ./inc/nav.jade
 
@@ -21,3 +22,8 @@ html(lang="en")
         new WOW().init();
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js", integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7", crossorigin="anonymous")
+    script(src="/javascripts/jquery.fancybox.pack.js")
+    script
+        $(document).ready(function() {
+        $(".fancybox").fancybox({helpers:{title : { type : 'inside' }}})
+        })

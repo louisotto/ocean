@@ -37,11 +37,15 @@ Still really not finished, the contact form needs functionality, the CSS code ne
 ### Front end
 * Fix mobile issues
 * Refactor CSS and add Sass support
-* Add lightbox functionality to work images
+* <s>Add lightbox functionality to work images</s>
+* Fix minor style inconsistencies
 
 ### Back end
 * Add email functionality to contact form
 * Add build tools to project
+* Incorporate some Express server-side magic to enable caching, gzipping etc
 
 ### Misc
 * Finish up the docs
+* Need a logo
+* Need a favicon of the logo

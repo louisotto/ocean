@@ -5,10 +5,10 @@ block content
         div.jumbotron.jumbotron-fluid
             div.container
                 h1.display-3.wow.fadeIn Ocean
-                p.lead.wow.fadeIn(data-wow-delay="0.5s") A really easy-to-use static Express powered Bootstrap 4 website
-                a(href="#").btn.btn-primary.btn-lg.wow.fadeIn(data-wow-delay="1s")
+                p.lead.wow.fadeIn(data-wow-delay="1s", data-wow-duration="2s") A really easy-to-use static Express powered Bootstrap 4 website
+                a(href="#").btn.btn-primary.btn-lg.wow.fadeIn(data-wow-delay="2.5s")
                     span.fui-github.white  Download on Github
-                a(href="/docs").btn.btn-primary-outline.btn-lg.wow.fadeIn(data-wow-delay="1.2s")
+                a(href="/docs").btn.btn-primary-outline.btn-lg.wow.fadeIn(data-wow-delay="2.8s")
                     span.fui-search.white  Read the Docs
     .row.pad:.col-sm-10.col-sm-offset-1
         h2.center About this site
@@ -39,18 +39,29 @@ block content
         h2.center.wow.fadeIn    So how do I use Ocean?
         p.lead.wow.fadeIn.
             I built Ocean to be really simple to get up and running. If you've already got Node installed, there are only 3 steps:
-        .col-md-4
-            .card.wow.fadeIn(data-wow-delay="0s")
-                img.card-img-top.img-fluid.center(src="/images/arrow.png", alt="Alt text", width="150")
-                .card-block
-                    h4.card-title.center Download
-        .col-md-4
-            .card.wow.fadeIn(data-wow-delay="0.5s")
-                img.card-img-top.img-fluid.center(src="/images/three.png", alt="Alt text", width="150")
-                .card-block
-                    h4.card-title.center Install
-        .col-md-4
-            .card.wow.fadeIn(data-wow-delay="1s")
-                img.card-img-top.img-fluid.center(src="/images/sports.png", alt="Alt text", width="150")
-                .card-block
-                    h4.card-title.center Run
+        .card-deck-wrapper
+            .card-deck
+                .card.wow.fadeIn(data-wow-delay="0s")
+                    img.card-img-top.img-fluid.center.icon-img(src="/images/arrow.png", alt="Alt text", width="150")
+                    .card-block
+                        h4.card-title.center Download
+                        p.card-text.
+                            Download the source directly from #[a(href="https://github.com/louisotto/ocean", target="_blank") Github]
+                .card.wow.fadeIn(data-wow-delay="0.5s")
+                    img.card-img-top.img-fluid.center.icon-img(src="/images/three.png", alt="Alt text", width="150")
+                    .card-block
+                        h4.card-title.center Install
+                        p.card-text.
+                            Run #[kbd npm install] in the project directory
+                .card.wow.fadeIn(data-wow-delay="1s")
+                    img.card-img-top.img-fluid.center.icon-img(src="/images/sports.png", alt="Alt text", width="150")
+                    .card-block
+                        h4.card-title.center Run
+                        p.card-text.
+                            Run #[kbd npm start] and go to http://localhost:3000
+    .row.pad.bg:.col-sm-8.col-sm-offset-2
+        h2.center.wow.fadeIn Where do I go from here?
+        p.wow.fadeIn.
+            Ocean is really easy to extend and modify, this site has a few easy-to-use templates for the usual pages you'd find on a small website. Drop in your content and change them to suit your needs and go from there!
+        p.wow.fadeIn.
+            Also, #[a(href="/docs") read the docs!]
