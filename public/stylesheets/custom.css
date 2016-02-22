@@ -23,7 +23,27 @@
     float: right;
 }
 
+.navbar-nav>li>.dropdown-menu {
+    margin-top: 0;
+    border-radius: 0;
+    text-align: center;
+}
+
+.dropdown-menu a {
+    display: inline-block;
+    width: auto;
+}
+
 /* BUTTONS, TYPOGRAPHY, ETC */
+
+body a {
+    color: #67bcdb;
+    transition: color ease .5s;
+}
+
+body a:hover {
+    color: #125894;
+}
 
 .btn-primary-outline {
     border: 1px solid #FFF;
@@ -156,6 +176,16 @@ h2,h3 {
     vertical-align: bottom;
     margin: 0;
 }
+
+.footer a {
+    color: #67bcdb;
+    transition: color ease 1s;
+}
+.footer a:hover {
+    color: #fff;
+}
+
+
 .social-tray {
     display: inline-block;
     float: right;
