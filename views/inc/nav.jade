@@ -1,7 +1,11 @@
-mixin header-item(name, url)
+mixin header-item(name, url, identifier)
   if name == nav
     li.nav-item.active
       a.nav-link(href=url)= name
+      span.sr-only (current)
+  else if identifier == 'email'
+    li.nav-item
+      a.nav-link(href=url, data-toggle="modal", data-target="#email")= name
       span.sr-only (current)
   else
     li.nav-item
@@ -9,7 +13,7 @@ mixin header-item(name, url)
 
 body.container-fluid
     nav.navbar.navbar-light.bg-faded.navbar-fixed-top
-        a.navbar-brand(href="#") Ocean
+        a.navbar-brand(href="/") Ocean
         button.navbar-toggler.hidden-sm-up(type="button", data-toggle="collapse", data-target="#nav")
             &#9776;
         .collapse.navbar-toggleable-xs#nav
@@ -18,4 +22,22 @@ body.container-fluid
                 +header-item('Home', '/')
                 +header-item('About', '/about')
                 +header-item('Work', '/work')
+                +header-item('Contact', 'javascript:;','email')
                 +header-item('Docs', '/docs')
+
+  .modal.fade#email(tabindex="-1", role="dialog", aria-labelledby="email" aria-hidden="true")
+                .modal-dialog(role="document")
+                    .modal-content
+                        .modal-header
+                            button.close(type="button", data-dismiss="modal", aria-label="Close")
+                                span(aria-hidden="true")&times;
+                            h4  We'd love to hear from you
+                        .modal-body.contact
+                            form(action="javascript:;", method="post")
+                              label(for="contact-name") Name
+                              input#contact-name.form-control.flat(name="contact-name", placeholder="John Doe")
+                              label(for="contact-email") Email (required)
+                              input#contact-email.form-control.flat(name="contact-email", placeholder="john@doe.com", required)
+                              label(for="contact-email") Message
+                              textarea#contact-msg.form-control.flat(name="contact-msg", placeholder="Your message here...", rows="4")
+                              button.btn.btn-block.btn-lg.btn-primary.send(type="submit") Send Message

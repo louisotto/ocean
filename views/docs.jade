@@ -18,28 +18,28 @@ block content
                     a.nav-link(href="#install") Installation
                 li.nav-item
                     a.nav-link(href="#structure") Project Structure
+                li.nav-item
+                    a.nav-link(href="#config") Configuring the server port
+                li.nav-item
+                    a.nav-link(href="#routes") Adding Routes and Pages
 
         .col-sm-9
             h3#requirements    Requirements
 
-            p.
-                You'll need #[a(href="https://nodejs.org/en/", target="_blank") NodeJS #[span.fui-exit.leave]] running on your machine. You can always run #[kbd node -v] inside your terminal to check.
+            p You'll need #[a(href="https://nodejs.org/en/", target="_blank") NodeJS #[span.fui-exit.leave]] running on your machine. You can always run #[kbd node -v] inside your terminal to check.
 
-            p.
-                I recommend installing #[a(href="https://github.com/remy/nodemon" target="_blank") Nodemon #[span.fui-exit.leave]] as it takes the pain out of restarting the server as you make back-end changes to the project.
+            p I recommend installing #[a(href="https://github.com/remy/nodemon" target="_blank") Nodemon #[span.fui-exit.leave]] as it takes the pain out of restarting the server as you make back-end changes to the project.
             hr
 
             h3#install  Installation
 
-            p.
-                To install Ocean via command line, open your CLI and download the project from Github:
+            p To install Ocean via command line, open your CLI and download the project from Github:
 
-            kbd.
-                teststsetset setse tse tset
+            kbd git clone https://github.com/louisotto/ocean.git ocean
 
             p Head into your app's directory:
 
-            kbd cd /myapp
+            kbd cd /ocean
 
             p Install the project dependencies:
 
@@ -56,8 +56,7 @@ block content
 
             h3#structure Structure
 
-            p.
-                The structure of Ocean is based on the popular Express Generator project. So if you have any familiarity with Express Generator, you'll feel right at home. If not, the directory structure is described below:
+            p The structure of Ocean is based on the popular Express Generator project. So if you have any familiarity with Express Generator, you'll feel right at home. If not, the directory structure is described below:
             pre.
                 ├── app.js              <-- Modules, routing, error handling etc
                 ├── bin
@@ -77,5 +76,126 @@ block content
                     │   └── ...
                     ├── index.jade
                     └── ...
+            p We'll dig into the configuration in a moment, but this should hopefully show you just how simple and straightforward Ocean is.
+
+            h3#config Configuring the server port
+
+            p By default, Ocean listens on port 3000, which is fine for development but not ideal for production. To change the port open the below file #[pre ./bin/www] Scroll down to line 15. You'll see:
+
+            kbd var port = normalizePort(process.env.PORT || '3000');
+
+            p Change the port variable and on the next launch it'll listen accordingly.
+
+            h3#routes   Adding Routes and Pages
+
+            p Quite simply, adding pages to your site is done in 3 steps
+            ol
+                li Create the view template for the page
+                li Configure the route handling for the page
+                li Tell the server to use the route
+
+            p Here's an example of creating a new page that we can access at #[samp /estuary]
+
+            p.lead Step 1: Create the view template
+
+            p Ocean uses Jade extensively, so I'll assume you have at least basic knowledge of how it works. If you don't, #[a(href="http://jade-lang.com/", target="_blank") you can learn it really fast]. Inside the #[samp /views] folder of your project, create a new file called #[em estuary.jade]
+
+            p The page should probably include the navigation and footer of the website, so at the top of the file write:
+            pre
+                | // estuary.jade
+                | extends layout
+                | 
+                | block content
+            p The top line of code means that the template inherits from layout.jade, which includes the navigation and footer. The second part states that the content of estuary.jade will extent the #[em block] part of the layout template
+
+            p   Let's finish up by adding some content to the page:
+
+            pre
+                | // estuary.jade
+                | extends layout
+                | 
+                | block content
+                |     h1
+                |         Hello World!
+
+            p At this point, the template is done, although in a real-world scenario you'll probably want to put more content on the page!
+
+            p.lead Step 2: Configure the route handling for the page
+
+            p Ocean follows Express' method of handling routing per page/view pair. In large applications this really helps the readability of code, by keeping sections separately organised in a matched-name pair.
+            p Now, inside the #[samp /routes] folder, create a file called #[em estuary.js]. As mentioned before, good practise suggests using matched pairs, so keep the names of your routes and templates the same where possible.
+            p   Inside the file, you'll want it to look like this:
+            pre
+                |var express = require('express');
+                |var router = express.Router();
+                | 
+                |/* GET home page. */
+                |router.get('/', function(req, res, next) {
+                |  res.render('estuary', { nav: 'Estuary' });
+                |});
+                | 
+                |module.exports = router;
+            p   If you understand what's happening here, great! If not, we'll walk through it.
+            p Lines 1 and 2 define dependancies for the file and set things up for operation. In this case we first need to require Express, and establish a router function.
+
+            p The next step is to handle the routing itself. In this example we're essentially telling the router that when someone lands on this page, it needs to render the #[em estuary.jade] template and pass it a variable called #[em nav] with a value of #[em Estuary]. The variable is used by the navigation to tell which the active page is, and apply CSS styling to it.
+
+            p   The last line simply exports the content of the file to be made available by the app.
+
+            p Simple, right? It's important to know how the scope works for routing this way, because you can quite easily create extra sub-pages and even API endpoints, check out the example below:
+
+            pre
+                |// estuary.js
+                |var express = require('express');
+                |var router = express.Router();
+                | 
+                |/* GET home page. */
+                |router.get('/', function(req, res, next) {
+                |  res.render('work', { nav: 'Work' });
+                |});
+                | 
+                |// This would handle displaying http://localhost:3000/estuary/outlet
+                |router.get('/outlet', function(req, res, next) {
+                |  res.render('inlet', { nav: 'Estuary' });
+                |});
+                | 
+                |// This would handle POST submissions to http://localhost:3000/estuary/inlet
+                |router.post('/inlet', function(req, res, next) {
+                |  res.send('Post received!');
+                |});
+                | 
+                |module.exports = router;
+            p Of course, you'll need to create the views and code for these routes, but this is just a brief example of how easy it is to extend.
+
+            p.lead Step 3: Tell the server to use the route
+
+            p Ok, we've got the view template, and we've configured the route. Now we need to tell the app to use it. In #[em /app.js] in the section below line 10, you'll want to add to the end of the existing var declarations, following the pattern already established:
+
+            pre.
+                // Declare route handlers here
+                var routes = require('./routes/index');
+                var docs = require('./routes/docs');
+                var about = require('./routes/about');
+                var work = require('./routes/work');
+                var estuary = require('./routes/estuary');
+
+            p   All this does is create a variable with the exported router variable from estuary.js
+
+            p   Now, still in app.js scroll down to the middleware section and add the following line below the existing routes:
+
+            pre.
+                app.use('/estuary', estuary);
+
             p.
-                We'll dig into the configuration in a moment, but this should hopefully show you just how simple and straightforward Ocean is.
+                All this does is tell the application to use the estuary variable to handle everything when someone visits /estuary
+
+            p That's it! You've created a new route, and a new template to be served on that route. To add more pages, you just need to follow this pattern.
+
+
+
+
+
+
+
+
+

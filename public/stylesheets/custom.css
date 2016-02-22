@@ -19,6 +19,10 @@
     color: #125894;
 }
 
+.navbar-toggler {
+    float: right;
+}
+
 /* BUTTONS, TYPOGRAPHY, ETC */
 
 .btn-primary-outline {
@@ -120,6 +124,20 @@ color: #fff;
     margin-bottom: 1em;
 }
 
+/* CONTACT MODAL */
+
+.contact {
+    background-color: #eee;
+}
+
+.send {
+    margin-top: 1em;
+}
+
+.contact textarea {
+    height: 100px;
+}
+
 /* FOOTER */
 .footer {
     margin-top: 0;
@@ -148,4 +166,32 @@ color: #fff;
     vertical-align: top;
     font-size: 20px;
     margin-right: 0.5em;
+}
+
+@media screen and (max-width: 600px) {
+
+    .display-3 {
+        font-size: 3em;
+    }
+    .nav.navbar-nav {
+        margin-top: 4em;
+    }
+    .navbar-nav .nav-item {
+        float: none;
+        text-align: center;
+    }
+    .navbar-nav .nav-item+.nav-item {
+        margin: 0;
+    }
+    .btn-primary-outline {
+        margin: 1em 0 0 0 ;
+    }
+    .social-tray {
+        width: 100%;
+        text-align: center;
+    }
+    .social-tray span {
+        font-size: 40px;
+        margin: 0 0.5em;
+    }
 }

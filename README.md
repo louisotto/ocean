@@ -23,3 +23,25 @@ If you aren't using Nodemon, open package.json and edit line 6 to read:
 ```
 "start": "node ./bin/www"
 ```
+
+# Documentation
+
+Docs are built into the demo, when you launch the site there's a Docs tab in the menu with detailed instructions.
+
+# Current status & Todos
+
+Still really not finished, the contact form needs functionality, the CSS code needs cleaning and maybe changed to Sass. Docs aren't done, but progress is being made. This is a really early release, so be warned.
+
+## Todos
+
+### Front end
+* Fix mobile issues
+* Refactor CSS and add Sass support
+* Add lightbox functionality to work images
+
+### Back end
+* Add email functionality to contact form
+* Add build tools to project
+
+### Misc
+* Finish up the docs
