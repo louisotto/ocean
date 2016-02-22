@@ -13,17 +13,39 @@ block content
 
             ul.nav.contents
                 li.nav-item
-                    a.nav-link(href="#requirements") Requirements
+                    a.nav-link(href="#requirements") 
+                        span.fui-alert-circle
+                        |  Requirements
                 li.nav-item
-                    a.nav-link(href="#install") Installation
+                    a.nav-link(href="#install")
+                        span.fui-gear
+                        |  Installation
                 li.nav-item
-                    a.nav-link(href="#structure") Project Structure
+                    a.nav-link(href="#structure") 
+                        span.fui-list-bulleted
+                        |  Project Structure
                 li.nav-item
-                    a.nav-link(href="#config") Configuring the server port
+                    a.nav-link(href="#config") 
+                        span.fui-gear
+                        |  Configuring the server port
                 li.nav-item
-                    a.nav-link(href="#routes") Adding Routes and Pages
+                    a.nav-link(href="#routes")
+                        span.fui-windows
+                        |  Adding Routes and Pages
+                li.nav-item
+                    a.nav-link(href="#look") 
+                        span.fui-star
+                        |  Look and Feel
+                li.nav-item
+                    a.nav-link(href="#animation") 
+                        span.fui-star
+                        |  Animation
+                li.nav-item
+                    a.nav-link(href="#Social")
+                        span.fui-user
+                        |  Social Icons
 
-        .col-sm-9
+        .col-sm-9.docs
 
             .alert-warning(role="alert")
                 strong Warning: 
@@ -32,7 +54,9 @@ block content
 
             p You'll need #[a(href="https://nodejs.org/en/", target="_blank") NodeJS #[span.fui-exit.leave]] running on your machine. You can always run #[kbd node -v] inside your terminal to check.
 
-            p I recommend installing #[a(href="https://github.com/remy/nodemon" target="_blank") Nodemon #[span.fui-exit.leave]] as it takes the pain out of restarting the server as you make back-end changes to the project.
+            p I recommend installing #[a(href="https://github.com/remy/nodemon" target="_blank") Nodemon #[span.fui-exit.leave]] as it takes the pain out of restarting the server as you make back-end changes to the project. Ocean is preconfigured to use Nodemon, if you don't want to - that's cool, open package.json and edit line 6 to read:
+
+            kbd "start": "node ./bin/www"
             hr
 
             h3#install  Installation
@@ -70,7 +94,6 @@ block content
                 │   ├── images
                 │   ├── javascripts
                 │   └── stylesheets
-                │       └── style.css
                 ├── routes              <-- Express routing on a per-page level
                 │   ├── index.js
                 │   └── ...
@@ -194,6 +217,59 @@ block content
                 All this does is tell the application to use the estuary variable to handle everything when someone visits /estuary
 
             p That's it! You've created a new route, and a new template to be served on that route. To add more pages, you just need to follow this pattern.
+
+            h3#look Look and Feel
+
+            p Overall look and feel is handled by a mix of #[a(href="http://v4-alpha.getbootstrap.com/", target="_blank") Bootstrap 4] and #[a(href="http://designmodo.github.io/Flat-UI/", target="_blank") Flat UI]. I highly suggest reading the Bootstrap documentation, as if you're not familiar with Bootstrap at all - you'll be lost without it. If you're familiar with Bootstrap 3, a lot is the same, but it's still worth checking out the docs as there's a ton of new things you'd miss otherwise.
+
+            p Ocean uses Bootstrap 4 directly from their CDN so that version control isn't a nightmare, if you'd like to get dirty with their Sass or CSS files, you'll have to download them from their site.
+
+            p I've used the Flat UI kit for most of the styling, and built on top of that in the custom.css file. Go there to make changes on top of Bootstrap and Flat UI.
+
+            h3#animation Animation
+
+            p You'll have noticed that the site uses subtle animation to add a little extra pazazz to the whole experience. Animations are managed by Wow.js and are CSS-powered for greater performance.
+
+            p To animate an element on the website you need to add two classes: first the .wow class, and secondly the class name for the animation you'd like to add, for example .fadeIn
+
+            p Here's an example of an animated element in Jade:
+
+            kbd p.lead.wow.fadeIn(data-wow-delay="1s", data-wow-duration="2s")
+
+            p This is almost as complicated an example as you'll need. It should be pretty obvious how this animation runs, but if not I suggest reading the #[a(href="mynameismatthieu.com/WOW/docs.html", target="_blank") Wow.js documentation].
+
+            h3#Social Social Media
+
+            p Around the site, I've added a few social sharing icons here and there. There are a load of social icons available in the Flat UI kit, which I've demonstrated below. To use them, create a span element with the class fui-*platform* where *platform* is the name of the social platform. If in doubt, inspect element ;)
+
+            .demo-icons
+                span.fui-facebook
+                span.fui-youtube
+                span.fui-vimeo
+                span.fui-twitter
+                span.fui-stumbleupon
+                span.fui-spotify
+                span.fui-skype
+                span.fui-pinterest
+                span.fui-path
+                span.fui-linkedin
+                span.fui-google-plus
+                span.fui-dribbble
+                span.fui-behance
+                span.fui-yelp
+                span.fui-wordpress
+                span.fui-windows-8
+                span.fui-vine
+                span.fui-tumblr
+                span.fui-paypal
+                span.fui-lastfm
+                span.fui-instagram
+                span.fui-html5
+                span.fui-github
+                span.fui-foursquare
+                span.fui-dropbox
+                span.fui-android
+                span.fui-apple
 
 
 

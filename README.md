@@ -49,3 +49,13 @@ Still really not finished, the contact form needs functionality, the CSS code ne
 * Finish up the docs
 * Need a logo
 * Need a favicon of the logo
+
+## License
+
+Ocean is free to use on personal projects, and I don't even mind if you use it on commercial projects - Attribution is warmly-received, but not compulsory by any means.
+
+That being said, the tools used by Ocean - Wow.js, Fancybox etc aren't free for commercial use so be sure to refer to the authors' respective websites:
+
+[Wow.js](http://mynameismatthieu.com/WOW/)
+
+[Fancybox](http://fancyapps.com/fancybox/#license)

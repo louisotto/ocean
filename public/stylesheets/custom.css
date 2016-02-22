@@ -67,9 +67,6 @@ body a:hover {
 span {
     color: #67bcdb;
 }
-span:hover {
-    color: #fff;
-}
 
 .center-btn {
     display: block;
@@ -86,6 +83,10 @@ h2,h3 {
 
 .leave {
     font-size: 13px;
+}
+
+.docs p {
+    margin: 1rem 0 0 0;
 }
 
 /* PAGE SPECIFIC STYLES & HELPERS */
@@ -161,6 +162,14 @@ h2,h3 {
 
 .contact textarea {
     height: 100px;
+}
+
+/* DOCS */
+
+.demo-icons span {
+    display: inline-block;
+    font-size: 2em;
+    margin: 0 1em;
 }
 
 /* FOOTER */
