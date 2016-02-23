@@ -81,6 +81,10 @@ h2,h3 {
     font-weight: 300;
 }
 
+h2.white {
+    -webkit-text-fill-color: white;
+}
+
 .leave {
     font-size: 13px;
 }

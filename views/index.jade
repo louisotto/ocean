@@ -5,7 +5,7 @@ block content
         div.jumbotron.jumbotron-fluid
             div.container
                 h1.display-3.wow.fadeIn Ocean
-                p.lead.wow.fadeIn(data-wow-delay="1s", data-wow-duration="2s") A really easy-to-use static Express powered Bootstrap 4 website
+                p.lead.wow.fadeIn(data-wow-delay="1s", data-wow-duration="2s") A flexible Bootstrap 4 website framework with a built-in Node.js server
                 a(href="#").btn.btn-primary.btn-lg.wow.fadeIn(data-wow-delay="2.5s")
                     span.fui-github.white  Download on Github
                 a(href="/docs").btn.btn-primary-outline.btn-lg.wow.fadeIn(data-wow-delay="2.8s")
@@ -23,18 +23,34 @@ block content
 
         p.
             To cut a long story short. Static sites are on the rise again, and for simple, informative websites they're a perfect fit. Services like Github Pages and Amazon S3 Cloudfront are great for static sites that handle high traffic and don't have any of the database or security issues you may encounter day-to-day.
-    .row.pad.bg:.col-sm-8.col-sm-offset-2
-        h2.center.wow.fadeIn So why Node and Express?
-        p.wow.fadeIn.
-            I'm a fan of cool technology, and if you're reading this then chances are that you'll fall into that group, too. Node is really fast as a web server, and it has loads of benefits.
+    .row.pad.bg:.col-sm-10.col-sm-offset-1
+        h2.center.wow.fadeIn So what is Ocean?
+        p.lead.wow.fadeIn.center.
+            Ocean is an open-source static website framework built on NodeJS. Here's some of the stuff it includes out the box:
 
-        blockquote.blockquote.wow.fadeIn(data-wow-delay="1s")
-            p.m-b-0.
-                Node.js is smaller and nimbler than the PHP interpreter. It’s less encumbered by legacy language support and Google has made a huge investment in V8 performance.
-            footer.blockquote-footer.
-                Craig Buckler from #[a(href="http://www.sitepoint.com/sitepoint-smackdown-php-vs-node-js/", target="_blank") SitePoint]
-        p.wow.fadeIn(data-wow-delay="1s").
-            To be honest, the more I use Node and Express to power websites, the more I love it. I hope you'll download the sources files and love it as much as I do too.
+        .card-columns
+            .card.card-block.wow.fadeIn
+                h4.card-title Built-in Server
+                p.card-text Ocean comes with a built-in NodeJS server that uses Express for easy extending.
+            .card.card-block.wow.fadeIn
+                h4.card-title Simple Routing
+                p.card-text Routing is already set up in matched route:view-template pairs.
+            .card.card-block.wow.fadeIn
+                h4.card-title Production-ready configuration
+                p.card-text Gzip? Check. Caching? Gotcha. Minified HTML? Yep. Lots of clever tech to increase performance.
+            .card.card-block.wow.fadeIn
+                h4.card-title Animation as standard
+                p.card-text Wow.js is included and already set up to add extra class to your pages.
+            .card.card-block.wow.fadeIn
+                h4.card-title Bootstrap 4
+                p.card-text The latest version of Bootstrap is included via CDN so you can start working with tomorrow's best framework.
+            .card.card-block.wow.fadeIn
+                h4.card-title Full documentation
+                p.card-text Running is one thing, extending is another. Documentation has you covered.
+            .card.card-block.wow.fadeIn
+                h4.card-title Open Source
+                p.card-text Nothing's locked down, and contribution is welcomed - Go nuts!
+        
     .row.pad:.col-sm-10.col-sm-offset-1
         h2.center.wow.fadeIn    So how do I use Ocean?
         p.lead.wow.fadeIn.
