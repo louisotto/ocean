@@ -21,13 +21,17 @@ block content
                         span.fui-gear
                         |  Installation
                 li.nav-item
-                    a.nav-link(href="#structure") 
-                        span.fui-list-bulleted
-                        |  Project Structure
+                    a.nav-link(href="#Build")
+                        span.fui-gear
+                        |  Build Tools
                 li.nav-item
                     a.nav-link(href="#config") 
                         span.fui-gear
                         |  Configuring the server port
+                li.nav-item
+                    a.nav-link(href="#structure") 
+                        span.fui-list-bulleted
+                        |  Project Structure
                 li.nav-item
                     a.nav-link(href="#routes")
                         span.fui-windows
@@ -48,8 +52,8 @@ block content
         .col-sm-9.docs
 
             .alert-warning(role="alert")
-                strong Warning: 
-                | Ocean is still being built, and as a result sometimes the docs become outdated as I find better ways of doing things. If you notice something that's off, #[a(href="mailto:contact@wingtip.solutions") email me] or if you can fix it, do the usual pull-request thing on Github :)
+                strong 
+                    p Warning: Ocean is still being built, and as a result sometimes the docs become outdated as I find better ways of doing things. If you notice something that's off, #[a(href="mailto:contact@wingtip.solutions") email me] or if you can fix it, do the usual pull-request thing on Github :)
             h3#requirements    Requirements
 
             p You'll need #[a(href="https://nodejs.org/en/", target="_blank") NodeJS #[span.fui-exit.leave]] running on your machine. You can always run #[kbd node -v] inside your terminal to check.
@@ -125,7 +129,7 @@ block content
 
             p.lead Step 1: Create the view template
 
-            p Ocean uses Jade extensively, so I'll assume you have at least basic knowledge of how it works. If you don't, #[a(href="http://jade-lang.com/", target="_blank") you can learn it really fast]. Inside the #[samp /views] folder of your project, create a new file called #[em estuary.jade]
+            p Ocean uses Jade extensively, so I'll assume you have at least basic knowledge of how it works. If you don't, #[a(href="http://jade-lang.com/", target="_blank") you can learn it really fast #[span.fui-exit.leave]]. Inside the #[samp /views] folder of your project, create a new file called #[em estuary.jade]
 
             p The page should probably include the navigation and footer of the website, so at the top of the file write:
             pre
@@ -220,7 +224,7 @@ block content
 
             h3#look Look and Feel
 
-            p Overall look and feel is handled by a mix of #[a(href="http://v4-alpha.getbootstrap.com/", target="_blank") Bootstrap 4] and #[a(href="http://designmodo.github.io/Flat-UI/", target="_blank") Flat UI]. I highly suggest reading the Bootstrap documentation, as if you're not familiar with Bootstrap at all - you'll be lost without it. If you're familiar with Bootstrap 3, a lot is the same, but it's still worth checking out the docs as there's a ton of new things you'd miss otherwise.
+            p Overall look and feel is handled by a mix of #[a(href="http://v4-alpha.getbootstrap.com/", target="_blank") Bootstrap 4 #[span.fui-exit.leave]] and #[a(href="http://designmodo.github.io/Flat-UI/", target="_blank") Flat UI #[span.fui-exit.leave]]. I highly suggest reading the Bootstrap documentation, as if you're not familiar with Bootstrap at all - you'll be lost without it. If you're familiar with Bootstrap 3, a lot is the same, but it's still worth checking out the docs as there's a ton of new things you'd miss otherwise.
 
             p Ocean uses Bootstrap 4 directly from their CDN so that version control isn't a nightmare, if you'd like to get dirty with their Sass or CSS files, you'll have to download them from their site.
 
@@ -236,7 +240,7 @@ block content
 
             kbd p.lead.wow.fadeIn(data-wow-delay="1s", data-wow-duration="2s")
 
-            p This is almost as complicated an example as you'll need. It should be pretty obvious how this animation runs, but if not I suggest reading the #[a(href="mynameismatthieu.com/WOW/docs.html", target="_blank") Wow.js documentation].
+            p This is almost as complicated an example as you'll need. It should be pretty obvious how this animation runs, but if not I suggest reading the #[a(href="mynameismatthieu.com/WOW/docs.html", target="_blank") Wow.js documentation #[span.fui-exit.leave]].
 
             h3#Social Social Media
 
@@ -270,6 +274,65 @@ block content
                 span.fui-dropbox
                 span.fui-android
                 span.fui-apple
+
+            h3#Build Build Tools
+
+            p Ocean includes Grunt to handle pre-deployment build actions like minifying CSS, optimising images and so on. Use of Grunt, like most other things in Ocean, isn't mandatory, but it is recommended. As a rule, you can ignore it for pretty much all of the development process and run Grunt just before you migrate to the live environment.
+
+            p Workflows are really personal, and as such I've included Grunt but not made it essential or necessary in any way, as such, you can completely ignore it and do things your own way. If you want to make the most of the tools I've included, then read on.
+
+            p The Grunt options are all configured in the usual place: /Gruntfile.js
+
+            p To run Grunt simply type the following into your CLI from the project directory:
+
+            kbd grunt
+
+            .alert-warning(role="alert")
+                p If you get an error about the command not being found, you probably just need to install the Grunt CLI. Simply paste the below into terminal and then try again:
+
+            kbd npm install -g grunt-cli
+
+            p Below I'll detail some of the Grunt tasks that are set up:
+
+            h4 Imagemin
+
+            p Imagemin compresses images (but keeps the quality, don't worry) and spits the files out into a /build folder within images. By default it'll search for all files (even within subfolders) with either png, jpg or gif file formats. 
+
+            .alert-info
+                p If you use the plugin, be sure to point your image src urls to /public/images/build/[image] or else you'll use the larger, original files.
+
+            pre.
+                imagemin: {
+                    dynamic: {
+                        files: [{
+                            expand: true,
+                            cwd: 'public/images/',
+                            src: ['**/*.{png,jpg,gif}'],
+                            dest: 'public/images/build/'
+                        }]
+                    }
+                }
+
+            p You can configure Imagemin further, #[a(href="https://github.com/gruntjs/grunt-contrib-imagemin", target="_blank") Read the docs #[span.fui-exit.leave]]
+
+            h4 Uglify
+
+            p Uglify minifies javascript files. I've set it to minify the custom.js file by default, as all other javascript resources are already minified.
+
+            pre.
+                uglify: {
+                    build: {
+                        src: 'public/javascripts/custom.js',
+                        dest: 'public/javascripts/custom.min.js'
+                    }
+                }
+
+            .alert-info
+                p If you use Uglify, be sure to change the src attribute in the footer to point to the minified file rather than the uncompressed one.
+
+            p You can configure Uglify further, #[a(href="https://github.com/gruntjs/grunt-contrib-uglify", target="_blank") Read the docs #[span.fui-exit.leave]]
+
+            p That's it for now, but I'll probably add to Grunt as Ocean progresses... If you think Grunt is cool, and want to use it more, #[a(href="https://24ways.org/2013/grunt-is-not-weird-and-hard/", target="_blank") I really recommend this article #[span.fui-exit.leave]]
 
 
 

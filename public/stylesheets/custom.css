@@ -91,6 +91,10 @@ h2,h3 {
 
 /* PAGE SPECIFIC STYLES & HELPERS */
 
+.alert-info p, .alert-warning p {
+    padding: 1em;
+}
+
 .row.pad {
     padding: 2em 0;
 }

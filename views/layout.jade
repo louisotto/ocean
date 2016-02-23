@@ -5,24 +5,31 @@ html(lang="en")
         meta(charset="utf-8")
         meta(name="viewport", content="width=device-width, initial-scale=1")
         meta(name="description", content="...")
+        //- Vendor CSS
         link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css", integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd", crossorigin="anonymous")
         link(rel='stylesheet', href='/stylesheets/vendor/animate.css')
         link(rel='stylesheet', href='/stylesheets/flat-ui.min.css')
-        link(rel='stylesheet', href='/stylesheets/custom.css')
         link(rel='stylesheet', href="/stylesheets/jquery.fancybox.css")
-
+        //- Your custom CSS here
+        link(rel='stylesheet', href='/stylesheets/custom.css')
+        
+    //- Navigation
     include ./inc/nav.jade
 
+    //- Page content
     block content
 
+    //- Footer
     include ./inc/footer.jade
 
     script(src="/javascripts/wow.min.js")
+    //- As Wow.js is important for the UX, load it before other blocking scripts
     script.
         new WOW().init();
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js", integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7", crossorigin="anonymous")
     script(src="/javascripts/jquery.fancybox.pack.js")
+    script(src="/javascripts/custom.js")
     script
         $(document).ready(function() {
         $(".fancybox").fancybox({helpers:{title : { type : 'inside' }}})

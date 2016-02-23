@@ -42,7 +42,7 @@ Still really not finished, the contact form needs functionality, the CSS code ne
 
 ### Back end
 * Add email functionality to contact form
-* Add build tools to project
+* <s>Add build tools to project</s>
 * Incorporate some Express server-side magic to enable caching, gzipping etc
 
 ### Misc
