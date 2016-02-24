@@ -6,4 +6,9 @@ block content
             div.container
                 h1= message
                 h2.white= error.status
-        pre #{error.stack}
+        if error.stack
+            pre #{error.stack}
+        else
+            .container:.row:.col-md-12
+                h2 Sorry about that
+                p This page can't be found, #[a(href="/") go back to the homepage?]

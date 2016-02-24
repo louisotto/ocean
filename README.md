@@ -39,6 +39,7 @@ Still really not finished, the contact form needs functionality, the CSS code ne
 * Refactor CSS and add Sass support
 * <s>Add lightbox functionality to work images</s>
 * Fix minor style inconsistencies
+* Add social sharing opengraph tags
 
 ### Back end
 * <s>Add email functionality to contact form</s>

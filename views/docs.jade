@@ -38,6 +38,9 @@ block content
                     a.nav-link.small(href="#port") 
                         |  &mdash; Configuring the server port
                 li.nav-item
+                    a.nav-link.small(href="#env") 
+                        |  &mdash; Setting the environment
+                li.nav-item
                     a.nav-link.small(href="#security") 
                         |  &mdash; Security
                 li.nav-item
@@ -77,6 +80,8 @@ block content
             p I recommend installing #[a(href="https://github.com/remy/nodemon" target="_blank") Nodemon #[span.fui-exit.leave]] as it takes the pain out of restarting the server as you make back-end changes to the project. Ocean is preconfigured to use Nodemon, if you don't want to - that's cool, open package.json and edit line 6 to read:
 
             kbd "start": "node ./bin/www"
+
+            p If you don't use nodemon, you'll have to manually restart the server every time you make changes to the server-side files.
             hr
 
             h3#install  Installation
@@ -125,6 +130,8 @@ block content
                     └── ...
             p We'll dig into the configuration in a moment, but this should hopefully show you just how simple and straightforward Ocean is.
 
+            hr
+
             h3#server Server Configuration
 
             p Ocean uses Node to power the server, and Express to extend it with useful features. The file that handles the server is located at: #[pre ./bin/www]
@@ -132,6 +139,8 @@ block content
             p Be careful making changes to this file, as it could cause problems if you do!
 
             p I've made sure that Ocean uses some decent server technologies to make sure your websites run fast and conform to best-practises, some of the tech is listed below:
+
+            hr
 
             h4#compression Gzip and compression
 
@@ -144,12 +153,16 @@ block content
             .alert-info
                 p Please note that compression should be applied before any other middleware so that its effect cascades down through subsequent middlewares.
 
+            hr
+
             h4#caching Caching
 
             p Caching is enabled by default for hosted, static files. The current caching is set for 1 week in app.js and you can change the cache time by modifying this line:
 
             pre // One Week in milliseconds, used for caching static files
                 |var oneWeek = 604800000;
+
+            hr
 
             h4#port Configuring the server port
 
@@ -158,6 +171,20 @@ block content
             pre var port = normalizePort(process.env.PORT || '3000');
 
             p Change the port variable and on the next server launch it'll listen accordingly.
+
+            hr
+
+            h4#env Setting the environment
+
+            p Before making the site live, you should change the server environment from development to production. In development, errors encountered print a stack trace, which users shouldn't see. Firstly it looks messy, and secondly it could undermine your site's security.
+
+            p To change the environment, open app.js and scroll down to this line and uncomment it:
+
+            pre // app.set('env', 'production');
+
+            p The server will now operate in production mode
+
+            hr
 
             h4#security Security
 
@@ -177,9 +204,11 @@ block content
                 // app.use(helmet.noSniff());
 
             p.
-                Most options are commented out, as with security it's really best to add and configure things specific to your needs. The only function I've set to run by defauly is hidePoweredBy() which masks your server technology from most scanners. This is useful because if Express is exposed as having a vulnerability, hackers could easily target your site. This just adds a layer of protection which might be enough to protect your site.
+                Most options are commented out, as with security it's really best to add and configure things specific to your needs. The only function I've set to run by default is hidePoweredBy() which masks your server technology from most scanners. This is useful because if Express is exposed as having a vulnerability, hackers could easily target your site. This just adds a layer of protection which might be enough to protect your site.
 
-            p Helmet is massive, #[a(href="https://github.com/helmetjs/helmet", target="_blank") so read the docs] and spend a little time configuring it for your live environment.
+            p Helmet is massive, #[a(href="https://github.com/helmetjs/helmet", target="_blank") so read the docs #[span.fui-exit.leave]] and spend a little time configuring it for your live environment.
+
+            hr
 
             h3#routes   Adding Routes and Pages
 
@@ -286,15 +315,14 @@ block content
 
             p That's it! You've created a new route, and a new template to be served on that route. To add more pages, you just need to follow this pattern.
 
+            hr
+
             h3#sendingmail Sending Email
 
-            p Ocean comes with contact form functionality built-in. Sendgrid is used for email sending and management, so you'll need an account with them. 
-            #[a(href="https://sendgrid.com", target="_blank") You can sign up here]
-            |. A free account gets you 12,000 emails per month, which is probably fine.
+            p Ocean comes with contact form functionality built-in. Sendgrid is used for email sending and management, so you'll need an account with them. #[a(href="https://sendgrid.com", target="_blank") You can sign up here #[span.fui-exit.leave]] A free account gets you 12,000 emails per month, which is probably fine.
 
             p When you have an account, you'll need to
-                #[a(href="https://app.sendgrid.com/settings/api_keys", target="_blank") set up an API key]
-            |. Once you have it, go to /routes/index.js and enter it in the appropriate place:
+                #[a(href="https://app.sendgrid.com/settings/api_keys", target="_blank") set up an API key #[span.fui-exit.leave]] Once you have it, go to /routes/index.js and enter it in the appropriate place:
 
             pre var sendgrid  = require('sendgrid')('Your API Key here');
 
@@ -315,9 +343,11 @@ block content
                     });
                 });
 
-            p For more information on how to customise Sendgrid emails, or if you have issues #[a(href="https://www.npmjs.com/package/sendgrid", target="_blank") see their NPM docs]
+            p For more information on how to customise Sendgrid emails, or if you have issues #[a(href="https://www.npmjs.com/package/sendgrid", target="_blank") see their NPM docs #[span.fui-exit.leave]]
 
             p Right now Ocean doesn't validate form input past a simple 'require' statement on the email field, so you'll have to add validation and error handling yourself (or wait for me to get around to it)
+
+            hr
 
             h3#look Look and Feel
 
@@ -326,6 +356,8 @@ block content
             p Ocean uses Bootstrap 4 directly from their CDN so that version control isn't a nightmare, if you'd like to get dirty with their Sass or CSS files, you'll have to download them from their site.
 
             p I've used the Flat UI kit for most of the styling, and built on top of that in the custom.css file. Go there to make changes on top of Bootstrap and Flat UI.
+
+            hr
 
             h4#Build Build Tools
 
@@ -386,6 +418,8 @@ block content
 
             p That's it for now, but I'll probably add to Grunt as Ocean progresses... If you think Grunt is cool, and want to use it more, #[a(href="https://24ways.org/2013/grunt-is-not-weird-and-hard/", target="_blank") I really recommend this article #[span.fui-exit.leave]]
 
+            hr
+
             h3#animation Animation
 
             p You'll have noticed that the site uses subtle animation to add a little extra pazazz to the whole experience. Animations are managed by Wow.js and are CSS-powered for greater performance.
@@ -398,15 +432,26 @@ block content
 
             p This is almost as complicated an example as you'll need. It should be pretty obvious how this animation runs, but if not I suggest reading the #[a(href="mynameismatthieu.com/WOW/docs.html", target="_blank") Wow.js documentation #[span.fui-exit.leave]].
 
+            hr
+
             h3#favicon Favicon
 
             p Support for favicons is built right in, just drop your favicon into the /public directory and uncomment this line in app.js:
 
             pre //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
-            h3#Social Social Media
+            hr
 
-            p Around the site, I've added a few social sharing icons here and there. There are a load of social icons available in the Flat UI kit, which I've demonstrated below. To use them, create a span element with the class fui-*platform* where *platform* is the name of the social platform. If in doubt, inspect element ;)
+            h3#Social Social Icons
+
+            p Around the site, I've added a few social sharing icons here and there. There are a load of social icons available in the Flat UI kit, which I've demonstrated below. To use them, create a span element with the class fui-*platform* like below:
+
+            pre.
+                span.fui-facebook
+                span.fui-youtube
+                span.fui-vimeo
+
+            p If in doubt, just inspect element on any of the icons below:
 
             .demo-icons
                 span.fui-facebook
@@ -436,3 +481,4 @@ block content
                 span.fui-dropbox
                 span.fui-android
                 span.fui-apple
+            hr
