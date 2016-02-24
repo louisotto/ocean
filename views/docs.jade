@@ -37,6 +37,14 @@ block content
                         span.fui-gear
                         |  &mdash; Caching
                 li.nav-item
+                    a.nav-link.small(href="#port") 
+                        span.fui-gear
+                        |  &mdash; Configuring the server port
+                li.nav-item
+                    a.nav-link.small(href="#security") 
+                        span.fui-gear
+                        |  &mdash; Security
+                li.nav-item
                     a.nav-link(href="#routes")
                         span.fui-windows
                         |  Adding Routes and Pages
@@ -147,13 +155,35 @@ block content
             pre // One Week in milliseconds, used for caching static files
                 |var oneWeek = 604800000;
 
-            h4 Configuring the server port
+            h4#port Configuring the server port
 
             p By default, Ocean listens on port 3000, which is fine for development but not ideal for production. To change the port open the below file #[pre ./bin/www] Scroll down to line 15. You'll see:
 
             pre var port = normalizePort(process.env.PORT || '3000');
 
             p Change the port variable and on the next server launch it'll listen accordingly.
+
+            h4#security Security
+
+            p Ocean comes with Helmet included, and preconfigured. In the app.js file you'll see all of the options around line 12:
+
+            pre.
+                // Security options
+                app.use(helmet.hidePoweredBy());
+                // app.use(helmet.csp());
+                // app.use(helmet.dnsPrefetchControl());
+                // app.use(helmet.hpkp());
+                // app.use(helmet.hsts());
+                // app.use(helmet.ieNoOpen());
+                // app.use(helmet.noCache());
+                // app.use(helmet.xssFilter());
+                // app.use(helmet.frameguard());
+                // app.use(helmet.noSniff());
+
+            p.
+                Most options are commented out, as with security it's really best to add and configure things specific to your needs. The only function I've set to run by defauly is hidePoweredBy() which masks your server technology from most scanners. This is useful because if Express is exposed as having a vulnerability, hackers could easily target your site. This just adds a layer of protection which might be enough to protect your site.
+
+            p Helmet is massive, #[a(href="https://github.com/helmetjs/helmet", target="_blank") so read the docs] and spend a little time configuring it for your live environment.
 
             h3#routes   Adding Routes and Pages
 

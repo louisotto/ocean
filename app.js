@@ -5,8 +5,21 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var helmet = require('helmet');
 
 var app = express();
+
+// Security options
+app.use(helmet.hidePoweredBy());
+// app.use(helmet.csp());
+// app.use(helmet.dnsPrefetchControl());
+// app.use(helmet.hpkp());
+// app.use(helmet.hsts());
+// app.use(helmet.ieNoOpen());
+// app.use(helmet.noCache());
+// app.use(helmet.xssFilter());
+// app.use(helmet.frameguard());
+// app.use(helmet.noSniff());
 
 // Declare route handlers here
 var routes = require('./routes/index');
