@@ -41,7 +41,8 @@ Still really not finished, the contact form needs functionality, the CSS code ne
 * Fix minor style inconsistencies
 
 ### Back end
-* Add email functionality to contact form
+* <s>Add email functionality to contact form</s>
+* Add validation and error-handling to email
 * <s>Add build tools to project</s>
 * <s>Incorporate some Express server-side magic to enable caching, gzipping etc</s>
 

@@ -45,6 +45,10 @@ block content
                         span.fui-windows
                         |  Adding Routes and Pages
                 li.nav-item
+                    a.nav-link(href="#sendingmail")
+                        span.fui-mail
+                        |  Sending Email
+                li.nav-item
                     a.nav-link(href="#look") 
                         span.fui-star
                         |  Look and Feel
@@ -281,6 +285,39 @@ block content
                 All this does is tell the application to use the estuary variable to handle everything when someone visits /estuary
 
             p That's it! You've created a new route, and a new template to be served on that route. To add more pages, you just need to follow this pattern.
+
+            h3#sendingmail Sending Email
+
+            p Ocean comes with contact form functionality built-in. Sendgrid is used for email sending and management, so you'll need an account with them. 
+            #[a(href="https://sendgrid.com", target="_blank") You can sign up here]
+            |. A free account gets you 12,000 emails per month, which is probably fine.
+
+            p When you have an account, you'll need to
+                #[a(href="https://app.sendgrid.com/settings/api_keys", target="_blank") set up an API key]
+            |. Once you have it, go to /routes/index.js and enter it in the appropriate place:
+
+            pre var sendgrid  = require('sendgrid')('Your API Key here');
+
+            p When you've done that, the form will successfully send email on your behalf. You can configure your emails in /routes/index.js:
+
+            pre.
+                /* Handle form submission */
+                router.get('/contact', function (req, res) {
+
+                  sendgrid.send({
+                        to:       'example@example.com',
+                        from:     req.query.email,
+                        subject:  'Message received from: ' + req.query.name,
+                        text:     req.query.msg
+                    }, function(err, json) {
+                        if (err) { return console.error(err); }
+                        res.send("Success");
+                    });
+                });
+
+            p For more information on how to customise Sendgrid emails, or if you have issues #[a(href="https://www.npmjs.com/package/sendgrid", target="_blank") see their NPM docs]
+
+            p Right now Ocean doesn't validate form input past a simple 'require' statement on the email field, so you'll have to add validation and error handling yourself (or wait for me to get around to it)
 
             h3#look Look and Feel
 

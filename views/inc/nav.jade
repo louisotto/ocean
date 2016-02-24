@@ -33,11 +33,11 @@ body.container-fluid
                                 span(aria-hidden="true")&times;
                             h4  We'd love to hear from you
                         .modal-body.contact
-                            form(action="javascript:;", method="post")
+                            form(action="javascript:;", method="post", class="contact-form")
                               label(for="contact-name") Name
-                              input#contact-name.form-control.flat(name="contact-name", placeholder="John Doe")
+                              input#contact-name.form-control.flat(type="text", name="contact-name", placeholder="John Doe")
                               label(for="contact-email") Email (required)
-                              input#contact-email.form-control.flat(name="contact-email", placeholder="john@doe.com", required)
+                              input#contact-email.form-control.flat(type="email", name="contact-email", placeholder="john@doe.com", required)
                               label(for="contact-email") Message
                               textarea#contact-msg.form-control.flat(name="contact-msg", placeholder="Your message here...", rows="4")
                               button.btn.btn-block.btn-lg.btn-primary.send(type="submit") Send Message
