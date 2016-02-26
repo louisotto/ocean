@@ -49,8 +49,8 @@ Still really not finished, the contact form needs functionality, the CSS code ne
 
 ### Misc
 * Finish up the docs
-* Need a logo
-* Need a favicon of the logo
+* <s>Need a logo</s>
+* <s>Need a favicon of the logo</s>
 
 ## License
 

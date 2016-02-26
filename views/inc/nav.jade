@@ -13,7 +13,8 @@ mixin header-item(name, url, identifier)
 
 body.container-fluid
     nav.navbar.navbar-light.bg-faded.navbar-fixed-top
-        a.navbar-brand(href="/") Ocean
+        a.navbar-brand(href="/")
+          img.logo(src="/images/logo.png", width="120", alt="Ocean: A Bootstrap 4 and Express website framework")
         button.navbar-toggler.hidden-sm-up(type="button", data-toggle="collapse", data-target="#nav")
             &#9776;
         .collapse.navbar-toggleable-xs#nav

@@ -34,7 +34,7 @@ app.set('view engine', 'jade');
 // One Week in milliseconds, used for caching static files
 var oneWeek = 604800000;
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(compression());
 app.use(logger('dev'));
 app.use(bodyParser.json());

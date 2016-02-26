@@ -65,8 +65,11 @@ block content
                     a.nav-link.small(href="#favicon") 
                         |  &mdash; Favicon
                 li.nav-item
-                    a.nav-link.small(href="#Social")
-                        |  &mdash; Social Icons
+                    a.nav-link.small(href="#icons")
+                        |  &mdash; Icons
+                li.nav-item
+                    a.nav-link.small(href="#tags")
+                        |  &mdash; Social OpenGraph Tags
 
         .col-sm-9.docs
 
@@ -112,6 +115,8 @@ block content
             p The structure of Ocean is based on the popular Express Generator project. So if you have any familiarity with Express Generator, you'll feel right at home. If not, the directory structure is described below:
             pre.
                 ├── app.js              <-- Modules, routing, error handling etc
+                ├── Gruntfile.js        <-- Build tools
+                ├── package.json        <-- Project dependencies
                 ├── bin
                 │   └── www             <-- The web server
                 ├── package.json        <-- Define project requirements
@@ -436,13 +441,88 @@ block content
 
             h3#favicon Favicon
 
-            p Support for favicons is built right in, just drop your favicon into the /public directory and uncomment this line in app.js:
+            p Support for favicons is built right in, just drop your favicon into the /public directory.
 
-            pre //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+            .alert-info
+                p You might have to clear your cache before you see the new favicon due to caching etc
 
             hr
 
-            h3#Social Social Icons
+            h3#icons Icons
+
+            p Flat UI comes with a load of glyphs for use, I've included them below so you can see them in action:
+
+            .demo-icons
+                span.fui-info-circle
+                span.fui-alert-circle
+                span.fui-question-circle
+                span.fui-check-circle
+                span.fui-cross-circle
+                span.fui-plus-circle
+                span.fui-window
+                span.fui-windows
+                span.fui-upload
+                span.fui-arrow-right
+                span.fui-arrow-left
+                span.fui-loop
+                span.fui-cmd
+                span.fui-mic
+                span.fui-export
+                span.fui-heart
+                span.fui-location
+                span.fui-plus
+                span.fui-check
+                span.fui-cross
+                span.fui-list
+                span.fui-new
+                span.fui-video
+                span.fui-photo
+                span.fui-time
+                span.fui-eye
+                span.fui-chat
+                span.fui-home
+                span.fui-search
+                span.fui-user
+                span.fui-mail
+                span.fui-lock
+                span.fui-power
+                span.fui-star
+                span.fui-calendar
+                span.fui-gear
+                span.fui-bookmark
+                span.fui-exit
+                span.fui-trash
+                span.fui-folder
+                span.fui-bubble
+                span.fui-calendar-solid
+                span.fui-star-2
+                span.fui-credit-card
+                span.fui-clip
+                span.fui-link
+                span.fui-pause
+                span.fui-play
+                span.fui-volume
+                span.fui-mute
+                span.fui-resize
+                span.fui-tag
+                span.fui-document
+                span.fui-image
+                span.fui-triangle-up
+                span.fui-triangle-up-small
+                span.fui-triangle-right-large
+                span.fui-triangle-left-large
+                span.fui-triangle-down
+                span.fui-triangle-down-small
+                span.fui-radio-unchecked
+                span.fui-radio-checked
+                span.fui-checkbox-unchecked
+                span.fui-checkbox-checked
+                span.fui-list-thumbnailed
+                span.fui-list-small-thumbnails
+                span.fui-list-numbered
+                span.fui-list-large-thumbnails
+                span.fui-list-columned
+                span.fui-list-bulleted
 
             p Around the site, I've added a few social sharing icons here and there. There are a load of social icons available in the Flat UI kit, which I've demonstrated below. To use them, create a span element with the class fui-*platform* like below:
 
@@ -482,3 +562,6 @@ block content
                 span.fui-android
                 span.fui-apple
             hr
+        h3#tags Social Opengraph Tags
+
+        p When you share links on networks like Facebook and Twitter, you can give viewers a richer experience by configuring Opengraph tags. Ocean is preconfigured to use them, simply go to /views/inc/social.jade and fill out the tags appropriately. Inside the file there are comments to give you more information on how to follow best practises, and authorise your Twitter card.

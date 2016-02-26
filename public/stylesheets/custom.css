@@ -4,6 +4,10 @@
 
 /* NAVIGATION */
 
+.logo {
+    margin-top: -5px;
+}
+
 .navbar .nav-link {
     padding: .875em 1em;
 }
