@@ -22,10 +22,10 @@ app.use(helmet.hidePoweredBy());
 // app.use(helmet.noSniff());
 
 // Declare route handlers here
-var routes = require('./routes/index');
-var docs = require('./routes/docs');
-var about = require('./routes/about');
-var work = require('./routes/work');
+var routes = require(__dirname + '/routes/index');
+var docs = require(__dirname + '/routes/docs');
+var about = require(__dirname + '/routes/about');
+var work = require(__dirname + '/routes/work');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
