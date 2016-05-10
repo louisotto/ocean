@@ -38,10 +38,10 @@ Still really not finished, the contact form needs functionality, the CSS code ne
 
 ### Front end
 * Fix mobile issues
-* Refactor CSS and add Sass support
+* <s>Refactor CSS and add Sass support</s>
 * <s>Add lightbox functionality to work images</s>
 * Fix minor style inconsistencies
-* Add social sharing opengraph tags
+* <s>Add social sharing opengraph tags</s>
 
 ### Back end
 * <s>Add email functionality to contact form</s>
@@ -50,9 +50,13 @@ Still really not finished, the contact form needs functionality, the CSS code ne
 * <s>Incorporate some Express server-side magic to enable caching, gzipping etc</s>
 
 ### Misc
-* Finish up the docs
+* <s>Finish up the docs</s>
 * <s>Need a logo</s>
 * <s>Need a favicon of the logo</s>
+
+## Sites built with Ocean
+I'd love to hear about them, so let me know if you use it for a project
+* [Natalie Cox Design](https://nataliecoxdesign.co.uk)
 
 ## License
 

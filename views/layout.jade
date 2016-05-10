@@ -7,7 +7,10 @@ html(lang="en")
         meta(name="description", content="...")
         include ./inc/social.jade
         //- Vendor CSS
+            CDN
         link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css", integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd", crossorigin="anonymous")
+        //- If you want to go the Sass route, just compile your Sass and uncomment
+            link(rel='stylesheet', href='/stylesheets/style.css')
         link(rel='stylesheet', href='/stylesheets/vendor/animate.css')
         link(rel='stylesheet', href='/stylesheets/flat-ui.min.css')
         link(rel='stylesheet', href="/stylesheets/jquery.fancybox.css")
